@@ -277,7 +277,7 @@ php artisan serve
 
 للإبلاغ عن المشاكل أو المساهمة في التطوير، يرجى فتح Issue أو Pull Request على GitHub.
 
-**Repository:** 
+**Repository:** https://github.com/abdfaraj-ai/Somod
 
 ---
 
