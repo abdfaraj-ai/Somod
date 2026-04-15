@@ -1,0 +1,336 @@
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: #f8f9fa;
+}
+/* Animations */
+.sos-btn-pulse { animation: pulse 2s infinite; }
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(220, 53, 69, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+}
+.view-section { display: none; }
+.view-section.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* UI Components */
+.hover-shadow:hover { transform: translateY(-5px); box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important; transition: all 0.3s; }
+.cursor-pointer { cursor: pointer; }
+.emergency-option.active { border-width: 2px; transform: scale(1.02); }
+
+/* Icon Box Styling */
+.icon-box {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  transition: transform 0.3s;
+}
+.card:hover .icon-box { transform: scale(1.1) rotate(5deg); }
+
+/* Hero Section */
+.hero-bg {
+  background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+  color: white;
+}
+.hero-img-container {
+   background-color: rgba(255,255,255,0.1);
+   border-radius: 50%;
+   padding: 2rem;
+   display: inline-block;
+}
+
+/* Map Block Styles */
+.map-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 6px;
+  padding: 1rem;
+}
+.map-block {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  font-size: 0.8rem;
+  user-select: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.map-block:hover { transform: scale(1.2); z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+.block-safe { background-color: #d1e7dd; color: #0f5132; border: 1px solid #badbcc; }
+.block-warning { background-color: #fff3cd; color: #664d03; border: 1px solid #ffecb5; }
+.block-danger { background-color: #f8d7da; color: #842029; border: 1px solid #f5c2c7; }
+
+/* Market Styles */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.status-badge { font-size: 0.75rem; padding: 0.35em 0.65em; }
+.category-card img { height: 120px; object-fit: cover; }
+
+/* Breathing Circle Animation */
+.breathing-circle {
+  width: 150px;
+  height: 150px;
+  background-color: #a3cfbb;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #146c43;
+  font-weight: bold;
+  transition: all 4s ease-in-out;
+}
+.breathing-active {
+  animation: breathe 8s infinite ease-in-out;
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+
+/* stories */
+/* شريط الأخبار */
+.ticker-bar {
+    background: linear-gradient(90deg, var(--accent-red), #e11d48);
+    color: white;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2000;
+}
+
+.ticker-content {
+    display: inline-block;
+    white-space: nowrap;
+    padding-right: 100%;
+    animation: ticker-animation 40s linear infinite;
+}
+
+@keyframes ticker-animation {
+    0% { transform: translate3d(100%, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* الهيرو الخاص بالقصص */
+.stories-hero {
+    padding: 200px 0 100px;
+    background: linear-gradient(rgba(6, 95, 70, 0.05), rgba(253, 250, 245, 1)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1600');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.stories-hero h1 {
+    font-weight: 900;
+    font-size: 4rem;
+    color: var(--dark-slate);
+    margin-bottom: 20px;
+}
+
+.stories-hero p {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #4b5563;
+}
+
+/* بطاقات القصص */
+.story-card {
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.story-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
+
+.story-img {
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.story-card:hover .story-img {
+    transform: scale(1.05);
+}
+
+.story-content {
+    padding: 40px;
+    flex-grow: 1;
+}
+
+.story-tag {
+    display: inline-block;
+    background: var(--secondary-mint);
+    color: var(--primary-emerald);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.story-title {
+    font-weight: 900;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.story-quote {
+    font-family: 'Amiri', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #374151;
+    border-right: 4px solid var(--primary-emerald);
+    padding-right: 20px;
+    margin: 25px 0;
+    line-height: 1.6;
+}
+
+/* نموذج المشاركة */
+.share-section {
+    background:#47614e;
+    color: white;
+    border-radius: 50px;
+    padding: 80px 40px;
+    margin-top: 80px;
+   
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.1);
+    color: blue;
+    border-color: var(--primary-emerald);
+    box-shadow: none;
+}
+
+.btn-submit {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-weight: 800;
+    padding: 15px 40px;
+    border-radius: 15px;
+    border: none;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.btn-submit:hover {
+    background: #044e3a;
+    transform: scale(1.02);
+}
+
+footer { 
+    background: #f8fafc; 
+    padding: 60px 0; 
+    border-top: 1px solid #e5e7eb; 
+}
+
+.text-emerald {
+    color: var(--primary-emerald);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #999; }
+
+        :root {
+            --primary-color: #059669;
+            --secondary-bg: #f8f9fa;
+        }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--secondary-bg);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
+            color: white;
+            padding: 60px 0;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+        .card-service {
+            border: 2px solid transparent;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: white;
+        }
+        .card-service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--primary-color);
+        }
+        .card-service.active {
+            border-color: var(--primary-color);
+            background-color: #ecfdf5;
+        }
+        .filter-btn {
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .sticky-detail {
+            position: sticky;
+            top: 20px;
+        }
+        .map-placeholder {
+            height: 200px;
+            background: #e5e7eb url('https://api.placeholder.com/400/200') center/cover;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        .map-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(5, 150, 105, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 1.5rem;
+        }
+        #services-list {
+            min-height: 400px;
+        }
